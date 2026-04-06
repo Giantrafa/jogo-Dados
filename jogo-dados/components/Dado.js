@@ -1,5 +1,5 @@
 export default function Dado({ valor }) {
-  let imagem = "/ImgDados/Dados1.png"; // padrão (não jogado)
+  let imagem = "/ImgDados/Dados1.png";
 
   if (valor !== null) {
     imagem = `/ImgDados/Dados${valor + 1}.png`;

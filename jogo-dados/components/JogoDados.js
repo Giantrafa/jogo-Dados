@@ -2,8 +2,7 @@
 import { useState, useEffect } from "react";
 import Dado from "./Dado";
 
-export default function JogoDados() {
-  // 🎲 Dados (2 por jogador)
+export default function JogoDados() {  
   const [dados1, setDados1] = useState([null, null]);
   const [dados2, setDados2] = useState([null, null]);
 
@@ -11,8 +10,7 @@ export default function JogoDados() {
   const [jogou2, setJogou2] = useState(false);
 
   const [historico, setHistorico] = useState([]);
-
-  // 🏆 Controle de jogo
+  
   const [placar1, setPlacar1] = useState(0);
   const [placar2, setPlacar2] = useState(0);
   const [rodadas, setRodadas] = useState(0);
@@ -75,24 +73,21 @@ export default function JogoDados() {
     setJogou1(false);
     setJogou2(false);
   }
-
-  // ✅ Controla quando finalizar rodada
+  
   useEffect(() => {
     if (jogou1 && jogou2) {
       finalizarRodada(dados1, dados2);
     }
   }, [jogou1, jogou2]);
-
-  // 🏁 Resultado final
+  
   let resultadoFinal = "";
 
   if (fimDeJogo) {
-    if (placar1 > placar2) resultadoFinal = "🏆 Jogador 1 venceu!";
-    else if (placar2 > placar1) resultadoFinal = "🏆 Jogador 2 venceu!";
-    else resultadoFinal = "🤝 Empate geral!";
+    if (placar1 > placar2) resultadoFinal = "Jogador 1 venceu!";
+    else if (placar2 > placar1) resultadoFinal = "Jogador 2 venceu!";
+    else resultadoFinal = "Empate geral!";
   }
 
-  // 🔄 Reiniciar jogo
   function reiniciarJogo() {
     setDados1([null, null]);
     setDados2([null, null]);
